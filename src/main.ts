@@ -8,7 +8,7 @@ const incrementID = "increment",
   counterSpan = "counter",
   header = "CMPM 121 Project";
 
-function updateUI(counterDisplay) {
+function updateUI(counterDisplay: HTMLSpanElement) {
   // Update the counter display
   counterDisplay.innerHTML = `${c}`;
 
