@@ -8,6 +8,15 @@ const incrementID = "increment",
   counterSpan = "counter",
   header = "CMPM 121 Project";
 
+function updateUI(counterDisplay) {
+  // Update the counter display
+  counterDisplay.innerHTML = `${c}`;
+
+  // Update the document title
+  document.title = "Clicked " + c;
+  document.body.style.backgroundColor = c % 2 ? "pink" : "lightblue";
+}
+
 function setup() {
   // Create the HTML for the counter
   document.body.innerHTML = `
@@ -36,36 +45,21 @@ function setup() {
   incrementButton.addEventListener("click", () => {
     // Increase the counter by 1
     c++;
-    // Update the counter display
-    counterElement.innerHTML = `${c}`;
-    // Update the document title
-    document.title = "Clicked " + c;
-    // Change the background color based on even/odd count
-    document.body.style.backgroundColor = c % 2 ? "pink" : "lightblue";
+    updateUI(counterElement);
   });
 
   // Add click event to the decrement button
   decrementButton.addEventListener("click", () => {
     // Decrease the counter by 1
     c--;
-    // Update the counter display
-    counterElement.innerHTML = `${c}`;
-    // Update the document title
-    document.title = "Clicked " + c;
-    // Change the background color based on even/odd count
-    document.body.style.backgroundColor = c % 2 ? "pink" : "lightblue";
+    updateUI(counterElement);
   });
 
   // Add click event to the reset button
   resetButton.addEventListener("click", () => {
     // Reset the counter to 0
     c = 0;
-    // Update the counter display
-    counterElement.innerHTML = `${c}`;
-    // Update the document title
-    document.title = "Clicked " + c;
-    // Change the background color based on even/odd count
-    document.body.style.backgroundColor = c % 2 ? "pink" : "lightblue";
+    updateUI(counterElement);
   });
 }
 
