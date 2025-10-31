@@ -1,20 +1,24 @@
 // CMPM 121 Smelly Code Activity
 
 // This variable keeps track of the counter
-let c = 0;
+let counterValue = 0;
 
 // These constants are for button IDs and heading text
 const incrementID = "increment",
   counterSpan = "counter",
+  decrementID = "dec",
+  resetID = "reset",
+  colorOdd = "pink",
+  colorEven = "lightblue",
   header = "CMPM 121 Project";
 
 function updateUI(counterDisplay: HTMLSpanElement) {
   // Update the counter display
-  counterDisplay.innerHTML = `${c}`;
+  counterDisplay.innerHTML = `${counterValue}`;
 
   // Update the document title
-  document.title = "Clicked " + c;
-  document.body.style.backgroundColor = c % 2 ? "pink" : "lightblue";
+  document.title = "Clicked " + counterValue;
+  document.body.style.backgroundColor = counterValue % 2 ? colorOdd : colorEven;
 }
 
 function setup() {
@@ -23,8 +27,8 @@ function setup() {
     <h1>${header}</h1>
     <p>Counter: <span id="${counterSpan}">0</span></p>
     <button id="${incrementID}">Click Me!</button>
-    <button id="dec">Decrement</button>
-    <button id="reset">Reset</button>
+    <button id="${decrementID}">Decrement</button>
+    <button id="${resetID}">Reset</button>
   `;
 
   // Get the increment button element from the document
@@ -44,21 +48,21 @@ function setup() {
   // Add click event to the increment button
   incrementButton.addEventListener("click", () => {
     // Increase the counter by 1
-    c++;
+    counterValue++;
     updateUI(counterElement);
   });
 
   // Add click event to the decrement button
   decrementButton.addEventListener("click", () => {
     // Decrease the counter by 1
-    c--;
+    counterValue--;
     updateUI(counterElement);
   });
 
   // Add click event to the reset button
   resetButton.addEventListener("click", () => {
     // Reset the counter to 0
-    c = 0;
+    counterValue = 0;
     updateUI(counterElement);
   });
 }
